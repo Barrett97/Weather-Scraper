@@ -2,6 +2,7 @@
 from lxml import html
 from bs4 import BeautifulSoup
 from selenium import webdriver
+from webdriver_manager.chrome import ChromeDriverManager
 import pandas as pd
 import requests
 import urllib.request
@@ -12,9 +13,9 @@ import time
 # driver = webdriver.PhantomJS(executable_path = 'C:\Programming\phantomjs-2.1.1-windows\bin')
 
 url = "https://www.theweathernetwork.com/ca/monthly/ontario/toronto"
-driver = webdriver.Chrome()
+driver = webdriver.Chrome(ChromeDriverManager().install())
 driver.get(url)
-driver.execute_script("window.scrollTo(0, document.body.scrollHeight);var lenOfPage=document.body.scrollHeight;return lenOfPage;")
+# driver.execute_script("window.scrollTo(0, document.body.scrollHeight);var lenOfPage=document.body.scrollHeight;return lenOfPage;")
 
 # page = urllib.request.urlopen(url)
 # soup = BeautifulSoup(page, 'html.parser')
